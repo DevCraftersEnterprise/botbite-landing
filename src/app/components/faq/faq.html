@@ -1,0 +1,31 @@
+<section id="faq" class="section" aria-labelledby="faq-title">
+  <div class="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+    <app-section-heading
+      align="left"
+      eyebrow="Preguntas frecuentes"
+      headingId="faq-title"
+      title="Resolvemos tus dudas"
+      description="¿No encuentras lo que buscas? Escríbenos y te respondemos personalmente."
+    />
+
+    <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+      @for (item of items; track item.q; let i = $index) {
+        <details appReveal [revealDelay]="(i % 4) * 50" name="faq" class="faq-item group" [open]="i === 0">
+          <summary
+            class="flex items-center justify-between gap-6 py-5 text-left text-base font-semibold text-neutral-950 transition-colors hover:text-neutral-700 sm:text-[17px]"
+          >
+            {{ item.q }}
+            <span
+              class="flex size-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 text-neutral-700 transition-all duration-300 group-open:rotate-45 group-open:border-neutral-950 group-open:bg-neutral-950 group-open:text-white"
+            >
+              <lucide-icon [img]="icons.Plus" [size]="16" />
+            </span>
+          </summary>
+          <div class="faq-content">
+            <p class="pr-12 pb-6 text-[15px] leading-relaxed text-neutral-600">{{ item.a }}</p>
+          </div>
+        </details>
+      }
+    </div>
+  </div>
+</section>

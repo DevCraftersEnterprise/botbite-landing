@@ -1,21 +1,70 @@
-<section id="contact" class="text-center my-16 px-4 py-12 bg-white border-t border-black/5">
-  <h2 class="text-3xl font-bold mb-8 slide-up text-neutral-900">Contáctanos</h2>
-  <div class="max-w-2xl mx-auto space-y-4">
-    <p class="text-lg flex items-center justify-center space-x-3 slide-up delay-100">
-      <span class="text-2xl">📧</span>
-      <a href="mailto:clientes&#64;botbite.com.mx" class="text-neutral-900 hover:underline">
-        clientes&#64;botbite.com.mx
-      </a>
-    </p>
-    <p class="text-lg flex items-center justify-center space-x-3 slide-up delay-200">
-      <span class="text-2xl">📱</span>
-      <a href="tel:+526441346676" class="text-neutral-900 hover:underline">
-        +52 644 1346676
-      </a>
-    </p>
-    <p class="text-lg flex items-center justify-center space-x-3 slide-up delay-300">
-      <span class="text-2xl">📍</span>
-      <span class="text-neutral-600">Ciudad Obregón, Sonora, México</span>
-    </p>
+<section id="contacto" class="pb-20 sm:pb-28" aria-labelledby="contacto-title">
+  <div class="container-page">
+    <div
+      appReveal
+      class="relative overflow-hidden rounded-[2rem] bg-neutral-950 px-6 py-14 text-white shadow-(--shadow-lift) sm:px-12 sm:py-20"
+    >
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+        <div class="bg-grid-dark mask-fade-b absolute inset-0"></div>
+        <div class="absolute -bottom-32 left-1/2 h-72 w-[640px] -translate-x-1/2 rounded-full bg-emerald-500/25 blur-3xl"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-2xl text-center">
+        <img
+          src="assets/botbite-mark-white.png"
+          alt=""
+          width="56"
+          height="56"
+          class="mx-auto size-14"
+        />
+        <h2 id="contacto-title" class="mt-6 text-3xl font-bold tracking-tight sm:text-5xl">
+          Pon a BotBite a atender tus mesas
+        </h2>
+        <p class="mt-5 text-lg text-neutral-400">
+          Agenda una demo y te mostramos cómo se vería en tu restaurante, con tu menú y tus sucursales.
+        </p>
+
+        <div class="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <a [href]="site.whatsappHref" target="_blank" rel="noopener noreferrer" class="btn-light group !px-6 !py-3.5 !text-[15px]">
+            <lucide-icon [img]="icons.MessageCircle" [size]="18" />
+            Escríbenos por WhatsApp
+          </a>
+          <a [href]="site.demoMailHref" class="btn-ghost-dark !px-6 !py-3.5 !text-[15px]">
+            <lucide-icon [img]="icons.Mail" [size]="18" />
+            Solicitar demo por correo
+          </a>
+        </div>
+      </div>
+
+      <ul class="relative mx-auto mt-14 grid max-w-3xl gap-3 border-t border-white/10 pt-10 text-sm sm:grid-cols-3">
+        <li>
+          <a [href]="'mailto:' + site.email" class="contact-link">
+            <lucide-icon [img]="icons.Mail" [size]="18" class="text-emerald-300" />
+            <span class="min-w-0">
+              <span class="block text-xs text-neutral-500">Correo</span>
+              <span class="block truncate font-medium">{{ site.email }}</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a [href]="site.phoneHref" class="contact-link">
+            <lucide-icon [img]="icons.Phone" [size]="18" class="text-emerald-300" />
+            <span>
+              <span class="block text-xs text-neutral-500">Teléfono</span>
+              <span class="block font-medium">{{ site.phoneDisplay }}</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <div class="contact-link">
+            <lucide-icon [img]="icons.MapPin" [size]="18" class="text-emerald-300" />
+            <span>
+              <span class="block text-xs text-neutral-500">Ubicación</span>
+              <span class="block font-medium">{{ site.location }}</span>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>

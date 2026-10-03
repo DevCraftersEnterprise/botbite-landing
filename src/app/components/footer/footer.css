@@ -1,0 +1,9 @@
+.footer-link {
+  color: var(--color-neutral-600);
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-neutral-950);
+}

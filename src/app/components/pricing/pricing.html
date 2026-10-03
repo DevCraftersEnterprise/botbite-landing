@@ -1,0 +1,55 @@
+<section id="precios" class="section border-t border-neutral-200/70 bg-(--color-surface)" aria-labelledby="precios-title">
+  <div class="container-page">
+    <app-section-heading
+      eyebrow="Precios"
+      headingId="precios-title"
+      title="Un modelo simple: pagas por los mensajes que atiendes"
+      description="Trabajamos con créditos de mensajes por sucursal. Cuéntanos sobre tu restaurante y te preparamos una propuesta según tu volumen."
+    />
+
+    <div class="mt-16 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+      <ul class="grid gap-4">
+        @for (m of model; track m.title; let i = $index) {
+          <li appReveal [revealDelay]="i * 80" class="card flex gap-4 p-6">
+            <span class="icon-tile"><lucide-icon [img]="m.icon" [size]="20" /></span>
+            <div>
+              <h3 class="font-semibold text-neutral-950">{{ m.title }}</h3>
+              <p class="mt-1 text-[15px] leading-relaxed text-neutral-600">{{ m.text }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <div appReveal [revealDelay]="120" class="relative overflow-hidden rounded-3xl bg-neutral-950 p-8 text-white shadow-(--shadow-lift) sm:p-10">
+        <div aria-hidden="true" class="bg-grid-dark absolute inset-0 opacity-50"></div>
+        <div aria-hidden="true" class="absolute -top-24 -right-24 size-64 rounded-full bg-emerald-500/20 blur-3xl"></div>
+        <div class="relative">
+          <p class="text-sm font-semibold text-emerald-300">Plan a la medida</p>
+          <p class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Cotización personalizada</p>
+          <p class="mt-3 text-neutral-400">
+            El paquete de créditos se ajusta a cada sucursal. Esto es lo que obtienes con BotBite:
+          </p>
+
+          <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            @for (item of included; track item) {
+              <li class="flex gap-2.5 text-sm text-neutral-200">
+                <lucide-icon [img]="icons.Check" [size]="16" [strokeWidth]="2.5" class="mt-0.5 shrink-0 text-emerald-300" />
+                {{ item }}
+              </li>
+            }
+          </ul>
+
+          <a
+            routerLink="/home"
+            fragment="contacto"
+            (click)="nav.go($event, 'contacto')"
+            class="btn-light group mt-10 w-full sm:w-auto"
+          >
+            Solicitar cotización
+            <lucide-icon [img]="icons.ArrowRight" [size]="16" class="transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
