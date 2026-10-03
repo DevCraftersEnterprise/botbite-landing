@@ -1,0 +1,51 @@
+<section id="beneficios" class="section border-t border-neutral-200/70 bg-(--color-surface)" aria-labelledby="beneficios-title">
+  <div class="container-page">
+    <app-section-heading
+      eyebrow="Beneficios"
+      headingId="beneficios-title"
+      title="Gana tu restaurante, gana tu comensal"
+      description="Una experiencia más ágil para quien está en la mesa y una operación más ordenada para quien está detrás de la barra."
+    />
+
+    <div class="mt-16 grid gap-6 lg:grid-cols-2">
+      <article appReveal class="card relative overflow-hidden bg-neutral-950 p-8 text-white sm:p-10">
+        <div aria-hidden="true" class="bg-grid-dark absolute inset-0 opacity-60"></div>
+        <div class="relative">
+          <span class="inline-flex size-12 items-center justify-center rounded-xl bg-white text-neutral-950">
+            <lucide-icon [img]="icons.Store" [size]="22" />
+          </span>
+          <h3 class="mt-6 text-2xl font-bold tracking-tight">Para tu restaurante</h3>
+          <p class="mt-2 text-neutral-400">Más control, menos fricción en piso.</p>
+          <ul class="mt-8 space-y-4">
+            @for (item of forRestaurant; track item) {
+              <li class="flex gap-3">
+                <span class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
+                  <lucide-icon [img]="icons.Check" [size]="13" [strokeWidth]="3" />
+                </span>
+                <span class="text-[15px] leading-relaxed text-neutral-200">{{ item }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </article>
+
+      <article appReveal [revealDelay]="120" class="card p-8 sm:p-10">
+        <span class="icon-tile size-12">
+          <lucide-icon [img]="icons.UsersRound" [size]="22" />
+        </span>
+        <h3 class="mt-6 text-2xl font-bold tracking-tight text-neutral-950">Para tus comensales</h3>
+        <p class="mt-2 text-neutral-500">Atención inmediata, a su manera.</p>
+        <ul class="mt-8 space-y-4">
+          @for (item of forGuests; track item) {
+            <li class="flex gap-3">
+              <span class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                <lucide-icon [img]="icons.Check" [size]="13" [strokeWidth]="3" />
+              </span>
+              <span class="text-[15px] leading-relaxed text-neutral-700">{{ item }}</span>
+            </li>
+          }
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

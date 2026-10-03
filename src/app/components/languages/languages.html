@@ -1,0 +1,109 @@
+<section id="idiomas" class="section overflow-hidden" aria-labelledby="idiomas-title">
+  <div class="container-page grid items-center gap-14 lg:grid-cols-2">
+    <div>
+      <app-section-heading
+        align="left"
+        eyebrow="Multilenguaje y voz"
+        headingId="idiomas-title"
+        title="Habla el idioma de cada mesa, aunque le manden audios"
+        description="Ideal para zonas turísticas: cada comensal elige su idioma al iniciar y BotBite le responde en él, traduciendo incluso las descripciones de tus platillos."
+      />
+
+      <ul class="mt-10 space-y-5">
+        <li appReveal class="flex gap-4">
+          <span class="icon-tile"><lucide-icon [img]="icons.LanguagesIcon" [size]="20" /></span>
+          <div>
+            <h3 class="font-semibold text-neutral-950">Español, inglés, francés y coreano</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-neutral-600">
+              Capturas tu menú una sola vez y BotBite traduce las descripciones de tus platillos al idioma del cliente.
+            </p>
+          </div>
+        </li>
+        <li appReveal [revealDelay]="80" class="flex gap-4">
+          <span class="icon-tile"><lucide-icon [img]="icons.Mic" [size]="20" /></span>
+          <div>
+            <h3 class="font-semibold text-neutral-950">Notas de voz transcritas con IA</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-neutral-600">
+              Si el cliente prefiere hablar, BotBite transcribe el audio y lo procesa como cualquier pedido escrito.
+            </p>
+          </div>
+        </li>
+        <li appReveal [revealDelay]="160" class="flex gap-4">
+          <span class="icon-tile"><lucide-icon [img]="icons.Sparkles" [size]="20" /></span>
+          <div>
+            <h3 class="font-semibold text-neutral-950">Tolerante a errores</h3>
+            <p class="mt-1 text-[15px] leading-relaxed text-neutral-600">
+              “Tacos al pastro”, “orchata”… la búsqueda difusa encuentra el producto correcto en tu menú.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="relative">
+      <div aria-hidden="true" class="absolute inset-x-6 top-10 bottom-0 -z-10 rounded-[2rem] bg-emerald-100/70 blur-2xl"></div>
+
+      <!-- Nota de voz → transcripción -->
+      <div appReveal class="card p-5 sm:p-6">
+        <p class="text-xs font-semibold tracking-wide text-neutral-500 uppercase">Nota de voz recibida</p>
+        <div class="mt-4 flex items-center gap-3 rounded-2xl bg-(--color-chat-out) p-3" aria-hidden="true">
+          <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#075e54] text-white">
+            <lucide-icon [img]="icons.AudioLines" [size]="18" />
+          </span>
+          <span class="flex h-8 flex-1 items-center gap-[3px] overflow-hidden">
+            @for (h of wave; track $index) {
+              <span
+                class="wave-bar w-[3px] shrink-0 rounded-full bg-neutral-600/70"
+                [style.height.px]="h"
+                [style.animation-delay.ms]="$index * 60"
+              ></span>
+            }
+          </span>
+          <span class="text-xs text-neutral-600">0:08</span>
+        </div>
+        <div class="mt-4 rounded-2xl border border-dashed border-neutral-300 p-4">
+          <p class="flex items-center gap-2 text-xs font-medium text-emerald-700">
+            <lucide-icon [img]="icons.Sparkles" [size]="14" /> Transcripción automática
+          </p>
+          <p class="mt-2 text-[15px] text-neutral-800">
+            “Me traes tres tacos de suadero, uno sin cilantro, y dos cocas por favor.”
+          </p>
+        </div>
+      </div>
+
+      <!-- Traducción de platillos -->
+      <div appReveal [revealDelay]="120" class="card mt-5 p-5 sm:ml-10 sm:p-6">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <p class="text-xs font-semibold tracking-wide text-neutral-500 uppercase">Tacos al pastor</p>
+          <div role="tablist" aria-label="Idioma de la descripción" class="flex gap-1 rounded-xl bg-neutral-100 p-1">
+            @for (l of langs; track l.code; let i = $index) {
+              <button
+                type="button"
+                role="tab"
+                [id]="'lang-tab-' + l.code"
+                [attr.aria-selected]="active() === i"
+                [attr.tabindex]="active() === i ? 0 : -1"
+                aria-controls="lang-panel"
+                [attr.aria-label]="l.name"
+                (click)="select(i)"
+                (keydown)="onTabKey($event, i)"
+                class="rounded-lg px-2.5 py-1 text-xs font-semibold transition-all duration-200"
+                [class]="active() === i ? 'bg-white text-neutral-950 shadow-sm' : 'text-neutral-500 hover:text-neutral-900'"
+              >
+                {{ l.label }}
+              </button>
+            }
+          </div>
+        </div>
+        @let current = langs[active()];
+        <div id="lang-panel" role="tabpanel" [attr.aria-labelledby]="'lang-tab-' + current.code" class="mt-4 min-h-[56px]">
+          @for (l of [current]; track l.code) {
+            <p class="animate-fade-swap text-[15px] leading-relaxed text-neutral-800" [attr.lang]="l.code">
+              {{ l.description }}
+            </p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

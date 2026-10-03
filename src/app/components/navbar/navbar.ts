@@ -1,41 +1,43 @@
-import { CommonModule, ViewportScroller } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { LucideAngularModule, Menu, X, LogIn, ArrowRight } from 'lucide-angular';
+import { NAV_LINKS, SITE } from '../../shared/site';
+import { SectionNavService } from '../../shared/section-nav.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule, RouterModule],
+  imports: [RouterLink, LucideAngularModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
+  host: {
+    '(window:scroll)': 'onScroll()',
+    '(document:keydown.escape)': 'close()',
+  },
 })
 export class Navbar {
-  private router = inject(Router);
-  private scroller = inject(ViewportScroller);
+  protected readonly nav = inject(SectionNavService);
+  protected readonly links = NAV_LINKS;
+  protected readonly site = SITE;
+  protected readonly icons = { Menu, X, LogIn, ArrowRight };
 
-  isOpen = signal(false);
+  protected readonly isOpen = signal(false);
+  protected readonly scrolled = signal(false);
 
-  scrollToSection(id: string) {
-    this.router.navigate(['home']).then(() => {
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          const yOffset = 500;
-          let y =
-            element.getBoundingClientRect().top + window.pageYOffset - yOffset;
-
-          if (y < 0) y = 0;
-
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-      }, 50);
-      this.isOpen.set(false);
-    });
+  protected onScroll(): void {
+    const value = window.scrollY > 8;
+    if (value !== this.scrolled()) this.scrolled.set(value);
   }
 
-  navigateToRoute(name: string) {
-    this.router.navigate([name]).then(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  protected toggle(): void {
+    this.isOpen.update((v) => !v);
+  }
+
+  close(): void {
     this.isOpen.set(false);
+  }
+
+  protected go(event: Event, id: string): void {
+    this.nav.go(event, id);
+    this.close();
   }
 }

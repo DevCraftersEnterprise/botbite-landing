@@ -1,0 +1,134 @@
+<!-- Maqueta decorativa: su contenido se describe en texto para lectores de pantalla. -->
+<p class="sr-only">
+  Ejemplo de conversación: el comensal saluda, elige idioma y mesa, recibe el menú, pide por nota de
+  voz “dos tacos al pastor sin cebolla y una horchata”, confirma su pedido y este llega a caja.
+</p>
+
+<div aria-hidden="true" class="relative mx-auto w-[300px] sm:w-[320px]">
+  <div class="rounded-[2.6rem] bg-neutral-950 p-2.5 shadow-(--shadow-lift) ring-1 ring-black/10">
+    <div class="relative overflow-hidden rounded-[2.1rem] bg-(--color-chat-bg)">
+      <div class="absolute top-2 left-1/2 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-neutral-950"></div>
+
+      <!-- Encabezado estilo WhatsApp -->
+      <div class="relative z-10 flex items-center gap-2.5 bg-[#075e54] px-3 pt-9 pb-2.5 text-white">
+        <lucide-icon [img]="icons.ArrowLeft" [size]="18" />
+        <div class="flex size-9 items-center justify-center rounded-full bg-white">
+          <img src="assets/botbite-mark.png" alt="" class="size-6" width="24" height="24" />
+        </div>
+        <div class="min-w-0 flex-1 leading-tight">
+          <p class="truncate text-sm font-semibold">Tu Restaurante</p>
+          <p class="text-[11px] text-white/80">
+            @if (typing() === 'bot') {
+              escribiendo…
+            } @else {
+              en línea
+            }
+          </p>
+        </div>
+        <lucide-icon [img]="icons.Video" [size]="18" class="opacity-90" />
+        <lucide-icon [img]="icons.Phone" [size]="16" class="opacity-90" />
+      </div>
+
+      <!-- Conversación -->
+      <div
+        class="flex h-[380px] flex-col justify-end gap-1.5 overflow-hidden px-3 pt-3 pb-3 text-[13px] leading-snug sm:h-[460px]"
+      >
+        @for (m of messages(); track m.id) {
+          <div class="animate-chat-in flex shrink-0" [class.justify-end]="m.from === 'user'">
+            <div
+              class="relative max-w-[84%] rounded-xl px-2.5 pt-1.5 pb-1 text-neutral-900 shadow-[0_1px_0.5px_rgb(0_0_0/0.13)]"
+              [class]="m.from === 'user' ? 'rounded-tr-sm bg-(--color-chat-out)' : 'rounded-tl-sm bg-white'"
+            >
+              @switch (m.kind) {
+                @case ('lang') {
+                  <p>¡Bienvenido! ¿En qué idioma prefieres que te atienda?</p>
+                  <div class="mt-1.5 grid grid-cols-2 gap-1 text-[12px] font-medium">
+                    <span class="rounded-md bg-neutral-100 px-2 py-1">Español</span>
+                    <span class="rounded-md bg-neutral-100 px-2 py-1">English</span>
+                    <span class="rounded-md bg-neutral-100 px-2 py-1">Français</span>
+                    <span class="rounded-md bg-neutral-100 px-2 py-1">한국어</span>
+                  </div>
+                }
+                @case ('menu') {
+                  <p>¡Gracias! 😊 Aquí tienes nuestro menú:</p>
+                  <div class="mt-1.5 flex items-center gap-2 rounded-lg bg-neutral-100 p-2">
+                    <span class="flex size-8 items-center justify-center rounded-md bg-red-500 text-white">
+                      <lucide-icon [img]="icons.FileText" [size]="16" />
+                    </span>
+                    <span class="leading-tight">
+                      <span class="block text-[12px] font-semibold">Menu.pdf</span>
+                      <span class="block text-[11px] text-neutral-500">Documento PDF</span>
+                    </span>
+                  </div>
+                  <p class="mt-1.5">¿Te tomo la orden o te doy una recomendación?</p>
+                }
+                @case ('voice') {
+                  <div class="flex items-center gap-2 py-0.5">
+                    <span class="flex size-7 items-center justify-center rounded-full bg-[#075e54] text-white">
+                      <lucide-icon [img]="icons.Play" [size]="13" />
+                    </span>
+                    <span class="flex h-6 items-center gap-[2px]">
+                      @for (h of wave; track $index) {
+                        <span
+                          class="wave-bar w-[2.5px] rounded-full bg-neutral-500"
+                          [style.height.px]="h"
+                          [style.animation-delay.ms]="$index * 70"
+                        ></span>
+                      }
+                    </span>
+                    <span class="text-[11px] text-neutral-500">0:06</span>
+                  </div>
+                  <p class="mt-1 border-t border-black/5 pt-1 text-[11.5px] text-neutral-600 italic">
+                    {{ m.text }}
+                  </p>
+                }
+                @case ('cart') {
+                  <p class="font-semibold">🛒 Tu pedido · Mesa 7</p>
+                  <div class="mt-1.5 space-y-0.5 text-[12px]">
+                    <div class="flex justify-between gap-3"><span>2× Tacos al pastor</span><span>$90.00</span></div>
+                    <div class="pl-4 text-[11px] text-neutral-500">Sin cebolla</div>
+                    <div class="flex justify-between gap-3"><span>1× Agua de horchata</span><span>$35.00</span></div>
+                    <div class="mt-1 flex justify-between gap-3 border-t border-black/5 pt-1 font-semibold">
+                      <span>Total</span><span>$125.00</span>
+                    </div>
+                  </div>
+                  <p class="mt-1.5">¿Confirmas tu pedido?</p>
+                }
+                @default {
+                  <p>{{ m.text }}</p>
+                }
+              }
+              <span class="mt-0.5 flex items-center justify-end gap-1 text-[10px] text-neutral-500">
+                {{ m.time }}
+                @if (m.from === 'user') {
+                  <lucide-icon [img]="icons.CheckCheck" [size]="13" class="text-sky-500" />
+                }
+              </span>
+            </div>
+          </div>
+        }
+
+        @if (typing(); as who) {
+          <div class="animate-chat-in flex shrink-0" [class.justify-end]="who === 'user'">
+            <div
+              class="flex items-center gap-1 rounded-xl px-3 py-2.5 shadow-[0_1px_0.5px_rgb(0_0_0/0.13)]"
+              [class]="who === 'user' ? 'bg-(--color-chat-out)' : 'bg-white'"
+            >
+              <span class="typing-dot size-1.5 rounded-full bg-neutral-500"></span>
+              <span class="typing-dot size-1.5 rounded-full bg-neutral-500"></span>
+              <span class="typing-dot size-1.5 rounded-full bg-neutral-500"></span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Barra de escritura -->
+      <div class="flex items-center gap-2 px-2.5 pb-4">
+        <div class="h-9 flex-1 rounded-full bg-white px-4 py-2 text-[12px] text-neutral-400">Mensaje</div>
+        <span class="flex size-9 items-center justify-center rounded-full bg-[#00a884] text-white">
+          <lucide-icon [img]="icons.Mic" [size]="16" />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

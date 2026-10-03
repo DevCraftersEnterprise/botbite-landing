@@ -1,0 +1,24 @@
+<section id="funciones" class="section" aria-labelledby="funciones-title">
+  <div class="container-page">
+    <app-section-heading
+      eyebrow="Funciones"
+      headingId="funciones-title"
+      title="Todo lo que haría un buen mesero, desde el celular del cliente"
+      description="BotBite cubre la experiencia completa en la mesa: desde el primer vistazo al menú hasta pedir la cuenta."
+    />
+
+    <ul class="mt-16 grid gap-px overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-200 sm:grid-cols-2 lg:grid-cols-3">
+      @for (f of features; track f.title; let i = $index) {
+        <li class="group relative bg-white p-7 transition-colors duration-300 hover:bg-neutral-50">
+          <div appReveal [revealDelay]="(i % 3) * 80">
+          <span class="icon-tile transition-all duration-300 group-hover:border-neutral-950 group-hover:bg-neutral-950 group-hover:text-white">
+            <lucide-icon [img]="f.icon" [size]="20" />
+          </span>
+          <h3 class="mt-5 text-base font-semibold tracking-tight text-neutral-950">{{ f.title }}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-neutral-600">{{ f.text }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

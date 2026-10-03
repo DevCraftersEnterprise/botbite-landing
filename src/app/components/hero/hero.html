@@ -1,0 +1,96 @@
+<section id="inicio" class="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24" aria-labelledby="hero-title">
+  <!-- Fondo -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="bg-grid mask-fade-b absolute inset-0"></div>
+    <div class="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-emerald-200/40 blur-3xl"></div>
+  </div>
+
+  <div class="container-page grid items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
+    <div class="text-center lg:text-left">
+      <p appReveal class="eyebrow">
+        <lucide-icon [img]="icons.Sparkles" [size]="14" class="text-emerald-600" />
+        Mesero virtual con IA para restaurantes
+      </p>
+
+      <h1
+        id="hero-title"
+        appReveal
+        [revealDelay]="80"
+        class="mt-6 text-4xl leading-[1.05] font-extrabold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl"
+      >
+        Tus clientes piden desde la mesa.
+        <span class="text-emerald-700">Por WhatsApp.</span>
+      </h1>
+
+      <p
+        appReveal
+        [revealDelay]="160"
+        class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 lg:mx-0"
+      >
+        BotBite atiende a cada mesa como un mesero más: muestra el menú, toma pedidos por texto o nota
+        de voz en cuatro idiomas y los envía a tu caja al instante. Sin apps, sin esperas.
+      </p>
+
+      <div
+        appReveal
+        [revealDelay]="240"
+        class="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center lg:justify-start"
+      >
+        <a routerLink="/home" fragment="contacto" (click)="nav.go($event, 'contacto')" class="btn-primary group !px-6 !py-3.5 !text-[15px]">
+          Solicitar una demo
+          <lucide-icon [img]="icons.ArrowRight" [size]="18" class="transition-transform group-hover:translate-x-1" />
+        </a>
+        <a routerLink="/home" fragment="como-funciona" (click)="nav.go($event, 'como-funciona')" class="btn-secondary !px-6 !py-3.5 !text-[15px]">
+          Ver cómo funciona
+        </a>
+      </div>
+
+      <ul appReveal [revealDelay]="320" class="mt-10 grid grid-cols-2 gap-x-6 gap-y-3 text-left text-sm text-neutral-700 sm:mx-auto sm:max-w-lg lg:mx-0">
+        @for (h of highlights; track h.label) {
+          <li class="flex items-center gap-2">
+            <lucide-icon [img]="h.icon" [size]="16" class="shrink-0 text-emerald-700" />
+            {{ h.label }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Maqueta animada -->
+    <div appReveal [revealDelay]="200" class="relative">
+      <div class="animate-float relative mx-auto w-fit">
+        <app-chat-mockup />
+
+        <!-- Tarjetas flotantes -->
+        <div
+          aria-hidden="true"
+          class="absolute top-24 -left-4 hidden items-center gap-3 rounded-2xl border border-neutral-200 bg-white/95 px-4 py-3 shadow-(--shadow-lift) backdrop-blur sm:flex lg:-left-16"
+        >
+          <span class="icon-tile size-9! rounded-lg">
+            <lucide-icon [img]="icons.QrCode" [size]="18" />
+          </span>
+          <span class="leading-tight">
+            <span class="block text-xs text-neutral-500">Escaneado en</span>
+            <span class="block text-sm font-semibold">Mesa 7</span>
+          </span>
+        </div>
+
+        <div
+          aria-hidden="true"
+          class="absolute -right-4 bottom-28 hidden items-center gap-3 rounded-2xl bg-neutral-950 px-4 py-3 text-white shadow-(--shadow-lift) sm:flex lg:-right-14"
+        >
+          <span class="relative flex size-9 items-center justify-center rounded-lg bg-white/10">
+            <lucide-icon [img]="icons.BellRing" [size]="18" />
+            <span class="absolute -top-0.5 -right-0.5 flex size-2.5">
+              <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex size-2.5 rounded-full bg-emerald-400"></span>
+            </span>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-xs text-white/60">Caja · nuevo pedido</span>
+            <span class="block text-sm font-semibold">Mesa 7 · $125.00</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
