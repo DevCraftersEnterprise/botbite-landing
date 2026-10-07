@@ -2,6 +2,8 @@
 <html lang="es-MX">
 <head>
   <meta charset="utf-8">
+  <!-- Marca que hay JavaScript: solo entonces se ocultan los elementos que aparecen al hacer scroll. -->
+  <script>document.documentElement.classList.add('js')</script>
   <title>BotBite · Mesero virtual por WhatsApp para restaurantes</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,11 +52,7 @@
   </script>
 </head>
 <body>
+  <!-- Las páginas se prerenderizan: su contenido es legible aun sin JavaScript. -->
   <app-root></app-root>
-  <noscript>
-    <p style="font-family:sans-serif;padding:2rem;text-align:center">
-      BotBite: mesero virtual por WhatsApp para restaurantes. Escríbenos a clientes&#64;botbite.com.mx.
-    </p>
-  </noscript>
 </body>
 </html>

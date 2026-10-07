@@ -117,9 +117,23 @@
   .prose-legal h1 {
     @apply mb-2 text-3xl font-bold tracking-tight text-neutral-950 sm:text-4xl;
   }
+  .prose-legal h2 {
+    @apply mt-14 mb-6 border-t border-neutral-200 pt-10 text-2xl font-bold tracking-tight text-neutral-950;
+  }
+  .prose-legal h3 {
+    @apply mt-8 mb-3 text-lg font-semibold text-neutral-950;
+  }
+  /* Los enlaces directos (#eliminacion-de-datos) no deben quedar bajo la barra fija. */
+  .prose-legal [id] {
+    scroll-margin-top: 6rem;
+  }
   .prose-legal p,
-  .prose-legal ul {
+  .prose-legal ul,
+  .prose-legal ol {
     @apply mb-5;
+  }
+  .prose-legal ol {
+    @apply list-decimal space-y-1 pl-6;
   }
   .prose-legal strong {
     @apply font-semibold text-neutral-950;
@@ -134,8 +148,10 @@
 
 /* ─── Animaciones ─────────────────────────────────────────────────────────── */
 
-/* Aparición al hacer scroll (ver RevealDirective) */
-.reveal {
+/* Aparición al hacer scroll (ver RevealDirective). Solo se oculta cuando hay
+   JavaScript (clase `js` en <html>, ver index.html): sin JS el contenido
+   prerenderizado se ve completo. */
+.js .reveal {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
   transition:
@@ -144,7 +160,7 @@
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
@@ -251,7 +267,7 @@
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
     transition: none;
