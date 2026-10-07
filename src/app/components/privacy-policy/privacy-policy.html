@@ -1,57 +1,230 @@
 <article class="container-page pt-28 pb-20 sm:pt-36">
   <div class="prose-legal mx-auto max-w-3xl">
     <p class="eyebrow mb-5">Legal</p>
-  <h1 class="!mb-8">Aviso de Privacidad</h1>
+    <h1 class="!mb-6">Aviso de Privacidad</h1>
 
-  <p>
-    <strong>Responsable del tratamiento de datos personales:</strong><br />
-    Carlos Osuna Blancarte, persona física con actividad empresarial, con
-    domicilio en Ciudad Obregón, Sonora, México y correo electrónico de
-    contacto:
-    <a href="mailto:clientes@botbite.com.mx">{{
-      "clientes@botbite.com.mx"
-    }}</a
-    >.
-  </p>
+    <nav aria-label="Secciones del aviso" class="mb-10 rounded-2xl border border-neutral-200 bg-(--color-surface) p-5 text-sm">
+      <p class="!mb-2 font-semibold text-neutral-950">En este aviso:</p>
+      <ul class="!mb-0">
+        <li><a routerLink="/aviso-de-privacidad" fragment="sitio-web">1. Sitio web y contacto</a></li>
+        <li><a routerLink="/aviso-de-privacidad" fragment="servicio-whatsapp">2. Servicio BotBite por WhatsApp</a></li>
+        <li><a routerLink="/aviso-de-privacidad" fragment="eliminacion-de-datos">Cómo solicitar la eliminación de tus datos</a></li>
+      </ul>
+    </nav>
 
-  <p>
-    <strong>Finalidad del tratamiento:</strong><br />
-    Los datos personales que se lleguen a recabar a través de este sitio web
-    serán utilizados exclusivamente para dar seguimiento a solicitudes de
-    contacto, brindar información sobre nuestros productos o servicios, y
-    establecer comunicación comercial directa con el interesado.
-  </p>
+    <!-- ── Sección 1: sitio web y contacto (texto original) ─────────────────── -->
+    <h2 id="sitio-web" class="!mt-0 !border-t-0 !pt-0">1. Sitio web y contacto</h2>
 
-  <p>
-    <strong>Datos personales recabados:</strong><br />
-    En su caso, podremos solicitar: nombre, correo electrónico, número
-    telefónico y nombre del negocio o empresa.<br />
-    No se solicitan ni almacenan datos sensibles a través de este sitio web.
-  </p>
+    <p>
+      <strong>Responsable del tratamiento de datos personales:</strong><br />
+      Carlos Osuna Blancarte, persona física con actividad empresarial, con
+      domicilio en Ciudad Obregón, Sonora, México y correo electrónico de
+      contacto:
+      <a [href]="'mailto:' + email">{{ email }}</a>.
+    </p>
 
-  <p>
-    <strong>Transferencias de datos:</strong><br />
-    No realizamos transferencias de datos personales a terceros sin el
-    consentimiento del titular, salvo en los casos expresamente permitidos por
-    la Ley Federal de Protección de Datos Personales en Posesión de los
-    Particulares.
-  </p>
+    <p>
+      <strong>Finalidad del tratamiento:</strong><br />
+      Los datos personales que se lleguen a recabar a través de este sitio web
+      serán utilizados exclusivamente para dar seguimiento a solicitudes de
+      contacto, brindar información sobre nuestros productos o servicios, y
+      establecer comunicación comercial directa con el interesado.
+    </p>
 
-  <p>
-    <strong>Derechos ARCO:</strong><br />
-    Usted tiene derecho a acceder, rectificar, cancelar u oponerse al
-    tratamiento de sus datos personales (derechos ARCO). Para ejercer estos
-    derechos, puede enviar un correo electrónico a:
-    <a href="mailto:clientes@botbite.com.mx">{{
-      "clientes@botbite.com.mx"
-    }}</a>
-    con el asunto “Solicitud ARCO”.
-  </p>
+    <p>
+      <strong>Datos personales recabados:</strong><br />
+      En su caso, podremos solicitar: nombre, correo electrónico, número
+      telefónico y nombre del negocio o empresa.<br />
+      No se solicitan ni almacenan datos sensibles a través de este sitio web.
+    </p>
 
-  <p class="rounded-2xl border border-neutral-200 bg-(--color-surface) p-5 text-sm text-neutral-600">
-    <strong>Cambios al aviso:</strong><br />
-    Este aviso de privacidad puede ser modificado en cualquier momento. Las
-    modificaciones estarán disponibles en este mismo sitio web.
-  </p>
+    <p>
+      <strong>Transferencias de datos:</strong><br />
+      No realizamos transferencias de datos personales a terceros sin el
+      consentimiento del titular, salvo en los casos expresamente permitidos por
+      la Ley Federal de Protección de Datos Personales en Posesión de los
+      Particulares.
+    </p>
+
+    <p>
+      <strong>Derechos ARCO:</strong><br />
+      Usted tiene derecho a acceder, rectificar, cancelar u oponerse al
+      tratamiento de sus datos personales (derechos ARCO). Para ejercer estos
+      derechos, puede enviar un correo electrónico a:
+      <a [href]="'mailto:' + email">{{ email }}</a>
+      con el asunto “Solicitud ARCO”.
+    </p>
+
+    <p class="rounded-2xl border border-neutral-200 bg-(--color-surface) p-5 text-sm text-neutral-600">
+      <strong>Cambios al aviso:</strong><br />
+      Este aviso de privacidad puede ser modificado en cualquier momento. Las
+      modificaciones estarán disponibles en este mismo sitio web.
+    </p>
+
+    <!-- ── Sección 2: servicio BotBite por WhatsApp ─────────────────────────── -->
+    <h2 id="servicio-whatsapp">2. Aviso de privacidad del servicio BotBite por WhatsApp</h2>
+
+    <h3>Responsable y alcance</h3>
+    <p>
+      Carlos Osuna Blancarte, persona física con actividad empresarial, que opera
+      bajo la marca comercial BotBite, con domicilio en Ciudad Obregón, Sonora,
+      México, y correo electrónico <a [href]="'mailto:' + email">{{ email }}</a>.
+    </p>
+    <p>
+      Esta sección aplica al servicio de asistentes de atención por WhatsApp que
+      BotBite ofrece a negocios y profesionales (“Negocios Clientes”), como
+      consultorios, profesionales de la salud, inmobiliarias, restaurantes y
+      otros negocios de servicios.
+    </p>
+
+    <h3>Nuestro papel en el tratamiento de los datos</h3>
+    <ul>
+      <li>
+        <strong>Datos de los Negocios Clientes</strong> (nombre, datos de
+        contacto, información del negocio y de su cuenta de WhatsApp Business):
+        BotBite es responsable de su tratamiento.
+      </li>
+      <li>
+        <strong>Datos de las personas que escriben al WhatsApp de un Negocio
+        Cliente</strong> (“Usuarios Finales”): BotBite trata estos datos
+        <strong>por cuenta y siguiendo las instrucciones del Negocio
+        Cliente</strong>, que es el responsable frente a sus propios clientes y
+        pacientes. Cada Negocio Cliente debe contar con su propio aviso de
+        privacidad.
+      </li>
+    </ul>
+
+    <h3>Datos personales que tratamos</h3>
+    <p>De los Usuarios Finales, únicamente lo que llega a través de la conversación de WhatsApp:</p>
+    <ul>
+      <li>Número de teléfono y nombre de perfil de WhatsApp.</li>
+      <li>
+        Contenido de los mensajes: texto, notas de voz, y las imágenes o
+        documentos que la persona decida enviar.
+      </li>
+      <li>Datos de citas o solicitudes: nombre, fecha, hora y servicio solicitado.</li>
+      <li>Información técnica de los mensajes, como fecha, hora y estado de entrega.</li>
+    </ul>
+    <p>
+      De los Negocios Clientes: nombre, datos de contacto, información del
+      negocio y datos de su cuenta de WhatsApp Business necesarios para conectar
+      el servicio.
+    </p>
+
+    <h3>Datos personales sensibles</h3>
+    <p>
+      El servicio no está diseñado para recabar datos personales sensibles, como
+      información de salud. Los asistentes solo piden lo necesario para atender
+      la solicitud o agendar una cita. Si un Usuario Final comparte
+      voluntariamente información sensible en la conversación, se usará
+      únicamente para atender esa solicitud, con las mismas medidas de
+      seguridad, y no se utilizará para ningún otro fin. Recomendamos no
+      compartir por WhatsApp información de salud que no sea necesaria.
+    </p>
+
+    <h3>Finalidades</h3>
+    <p>Usamos los datos exclusivamente para prestar el servicio al Negocio Cliente:</p>
+    <ol>
+      <li>
+        Responder automáticamente los mensajes de los Usuarios Finales sobre
+        servicios, precios, horarios y disponibilidad.
+      </li>
+      <li>Agendar, confirmar, reprogramar y recordar citas.</li>
+      <li>Transcribir notas de voz para poder entenderlas y responderlas.</li>
+      <li>
+        Enviar notificaciones autorizadas, como confirmaciones y recordatorios, a
+        personas que contactaron al negocio o aceptaron recibirlas.
+      </li>
+      <li>
+        Transferir la conversación al personal del Negocio Cliente cuando se
+        requiere atención personal.
+      </li>
+      <li>Dar soporte técnico, mantener la seguridad y cumplir obligaciones legales.</li>
+    </ol>
+    <p>
+      <strong>No vendemos</strong> los datos personales, <strong>no los usamos
+      para publicidad</strong> y no los usamos para fines distintos a los
+      anteriores.
+    </p>
+
+    <h3>Proveedores que nos ayudan a prestar el servicio</h3>
+    <p>
+      Para operar el servicio compartimos datos, bajo contrato y solo en lo
+      necesario, con los siguientes proveedores (encargados), que pueden
+      tratarlos fuera de México, principalmente en Estados Unidos:
+    </p>
+    <ul>
+      <li>
+        <strong>Meta Platforms (WhatsApp Business Platform):</strong> envío y
+        recepción de mensajes de WhatsApp.
+      </li>
+      <li>
+        <strong>OpenAI, L.L.C. y Anthropic, PBC:</strong> modelos de
+        inteligencia artificial que generan las respuestas y transcriben notas de
+        voz.
+      </li>
+      <li>
+        <strong>Google LLC:</strong> calendario y hojas de cálculo para la
+        gestión de citas.
+      </li>
+      <li>
+        <strong>Hostinger International Ltd.:</strong> servidores donde opera
+        nuestra plataforma.
+      </li>
+    </ul>
+    <p>
+      Fuera de estos casos, no transferimos datos personales a terceros sin
+      consentimiento, salvo en los supuestos previstos por la ley.
+    </p>
+
+    <h3>Conservación</h3>
+    <p>
+      Conservamos las conversaciones y los datos de citas mientras el Negocio
+      Cliente tenga activo el servicio y, como máximo,
+      <strong>{{ legal.retentionAfterLastInteraction }}</strong> desde la última
+      interacción, salvo que la ley exija conservarlos más tiempo. Cuando un
+      Negocio Cliente da por terminado el servicio, eliminamos sus datos y los de
+      sus Usuarios Finales en un plazo máximo de
+      <strong>{{ legal.deletionAfterTermination }}</strong>.
+    </p>
+
+    <h3>Seguridad</h3>
+    <p>
+      Aplicamos medidas administrativas, técnicas y físicas razonables para
+      proteger los datos, entre ellas: conexiones cifradas (HTTPS), acceso
+      restringido solo a personal autorizado y resguardo protegido de
+      credenciales.
+    </p>
+
+    <h3>Derechos ARCO y revocación del consentimiento</h3>
+    <p>
+      Los Usuarios Finales pueden ejercer sus derechos de acceso,
+      rectificación, cancelación u oposición (ARCO), o revocar su
+      consentimiento, directamente con el Negocio Cliente con el que se
+      comunicaron o escribiendo a <a [href]="'mailto:' + email">{{ email }}</a>
+      con el asunto “Solicitud ARCO”. Si la solicitud corresponde a un Negocio
+      Cliente, la canalizaremos y le daremos el apoyo necesario. Responderemos
+      dentro de los plazos que establece la ley.
+    </p>
+
+    <h3 id="eliminacion-de-datos">Eliminación de datos</h3>
+    <p>
+      Para solicitar que eliminemos tus datos, escribe a
+      <a [href]="'mailto:' + email + '?subject=Eliminaci%C3%B3n%20de%20datos'">{{ email }}</a>
+      con el asunto “Eliminación de datos” e indica el número de WhatsApp desde
+      el que te comunicaste y el nombre del negocio. Eliminaremos tus datos de
+      nuestros sistemas en un plazo máximo de
+      <strong>{{ legal.deletionRequestDeadline }}</strong> y te confirmaremos por
+      correo. También puedes dejar de recibir mensajes en cualquier momento
+      bloqueando el número del negocio en WhatsApp o pidiéndolo en la
+      conversación.
+    </p>
+
+    <h3>Cambios a este aviso</h3>
+    <p>Las modificaciones se publicarán en esta misma página.</p>
+
+    <p class="rounded-2xl border border-neutral-200 bg-(--color-surface) p-5 text-sm text-neutral-600">
+      <strong>Última actualización:</strong> {{ legal.lastUpdated }}
+    </p>
   </div>
 </article>

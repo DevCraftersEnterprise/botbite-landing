@@ -1,0 +1,244 @@
+<a
+  href="#contenido"
+  (click)="skip($event)"
+  class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-neutral-950 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+>
+  Saltar al contenido
+</a>
+
+<!-- Encabezado propio de la página para negocios -->
+<header class="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/85 backdrop-blur">
+  <div class="container-page flex h-16 items-center justify-between gap-4">
+    <a routerLink="/agentes" class="inline-flex items-center gap-2.5" aria-label="BotBite para negocios, inicio">
+      <img src="assets/botbite-mark.png" alt="" width="32" height="32" class="size-8" />
+      <span class="text-[17px] tracking-tight text-neutral-950">
+        <span class="font-light">BOT</span><span class="font-extrabold">BITE</span>
+      </span>
+      <span class="hidden rounded-full border border-neutral-200 px-2 py-0.5 text-xs font-medium text-neutral-600 sm:inline">
+        para negocios
+      </span>
+    </a>
+    <a [href]="site.whatsappPlainHref" target="_blank" rel="noopener noreferrer" class="btn-primary !px-4 !py-2 !text-sm">
+      Quiero mi asistente
+      <span class="sr-only">(abre WhatsApp en una pestaña nueva)</span>
+    </a>
+  </div>
+</header>
+
+<main id="contenido" tabindex="-1" class="outline-none">
+  <!-- 1. Portada -->
+  <section class="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28" aria-labelledby="agentes-title">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+      <div class="bg-grid mask-fade-b absolute inset-0"></div>
+      <div class="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-emerald-200/40 blur-3xl"></div>
+    </div>
+
+    <div class="container-page mx-auto max-w-3xl text-center">
+      <p appReveal class="eyebrow">
+        <lucide-icon [img]="icons.Sparkles" [size]="14" class="text-emerald-600" />
+        Asistente de WhatsApp con IA para negocios de servicios
+      </p>
+      <h1
+        id="agentes-title"
+        appReveal
+        [revealDelay]="80"
+        class="mt-6 text-4xl leading-[1.08] font-extrabold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl"
+      >
+        Tu asistente de WhatsApp que <span class="text-emerald-700">atiende, agenda y confirma citas</span> por ti
+      </h1>
+      <p appReveal [revealDelay]="160" class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600">
+        BotBite responde a tus clientes las 24 horas con inteligencia artificial, para que tú te enfoques en tu
+        trabajo.
+      </p>
+      <div appReveal [revealDelay]="240" class="mt-9 flex justify-center">
+        <a [href]="site.whatsappPlainHref" target="_blank" rel="noopener noreferrer" class="btn-primary group !px-6 !py-3.5 !text-[15px]">
+          Quiero mi asistente
+          <lucide-icon [img]="icons.ArrowRight" [size]="18" class="transition-transform group-hover:translate-x-1" />
+          <span class="sr-only">(abre WhatsApp en una pestaña nueva)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Qué es BotBite -->
+  <section class="section border-t border-neutral-200/70 bg-(--color-surface)" aria-labelledby="que-es-title">
+    <div class="container-page mx-auto max-w-3xl text-center">
+      <p appReveal class="eyebrow">Qué es BotBite</p>
+      <h2 id="que-es-title" appReveal [revealDelay]="60" class="mt-4 text-3xl font-bold tracking-tight text-neutral-950 sm:text-4xl">
+        Un asistente con IA conectado al WhatsApp de tu negocio
+      </h2>
+      <p appReveal [revealDelay]="120" class="mt-5 text-lg leading-relaxed text-neutral-600">
+        BotBite es una plataforma que conecta un asistente con inteligencia artificial al WhatsApp de tu negocio.
+        Responde dudas, agenda citas y envía recordatorios de forma automática, usando la plataforma oficial de
+        WhatsApp Business.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. Para quién es -->
+  <section class="section" aria-labelledby="para-quien-title">
+    <div class="container-page">
+      <div class="mx-auto max-w-2xl text-center">
+        <p appReveal class="eyebrow">Para quién es</p>
+        <h2 id="para-quien-title" appReveal [revealDelay]="60" class="mt-4 text-3xl font-bold tracking-tight text-neutral-950 sm:text-4xl">
+          Hecho para negocios que viven de sus citas
+        </h2>
+      </div>
+
+      <ul class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        @for (item of audiences; track item.title; let i = $index) {
+          <li appReveal [revealDelay]="i * 80" class="card p-6">
+            <span class="icon-tile"><lucide-icon [img]="item.icon" [size]="20" /></span>
+            <h3 class="mt-5 text-lg font-semibold tracking-tight text-neutral-950">{{ item.title }}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-neutral-600">{{ item.text }}</p>
+          </li>
+        }
+      </ul>
+
+      <a
+        appReveal
+        routerLink="/home"
+        class="group mx-auto mt-8 flex max-w-2xl items-center gap-4 rounded-2xl border border-neutral-200 bg-(--color-surface) p-5 transition-colors hover:border-neutral-300"
+      >
+        <span class="icon-tile shrink-0"><lucide-icon [img]="icons.UtensilsCrossed" [size]="20" /></span>
+        <span class="text-[15px] text-neutral-700">
+          <strong class="font-semibold text-neutral-950">¿Tienes un restaurante?</strong>
+          Conoce BotBite para restaurantes: pedidos desde la mesa con un QR.
+        </span>
+        <lucide-icon [img]="icons.ArrowRight" [size]="18" class="ml-auto shrink-0 text-neutral-500 transition-transform group-hover:translate-x-1" />
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. Qué hace -->
+  <section class="section border-t border-neutral-200/70 bg-(--color-surface)" aria-labelledby="que-hace-title">
+    <div class="container-page grid items-start gap-12 lg:grid-cols-[1fr_1.2fr]">
+      <div>
+        <p appReveal class="eyebrow">Qué hace</p>
+        <h2 id="que-hace-title" appReveal [revealDelay]="60" class="mt-4 text-3xl font-bold tracking-tight text-neutral-950 sm:text-4xl">
+          Atiende a tus clientes como lo harías tú
+        </h2>
+        <p appReveal [revealDelay]="120" class="mt-4 text-lg leading-relaxed text-neutral-600">
+          Sin dejar mensajes sin responder, aunque estés ocupado o fuera de horario.
+        </p>
+      </div>
+      <ul class="grid gap-3">
+        @for (item of capabilities; track item.text; let i = $index) {
+          <li appReveal [revealDelay]="i * 70" class="card flex items-start gap-4 p-5">
+            <span class="icon-tile shrink-0"><lucide-icon [img]="item.icon" [size]="20" /></span>
+            <p class="pt-2 text-[15px] leading-relaxed text-neutral-700">{{ item.text }}</p>
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. Cómo funciona -->
+  <section class="section" aria-labelledby="como-title">
+    <div class="container-page">
+      <div class="mx-auto max-w-2xl text-center">
+        <p appReveal class="eyebrow">Cómo funciona</p>
+        <h2 id="como-title" appReveal [revealDelay]="60" class="mt-4 text-3xl font-bold tracking-tight text-neutral-950 sm:text-4xl">
+          Listo en tres pasos
+        </h2>
+      </div>
+      <ol class="mt-14 grid gap-5 md:grid-cols-3">
+        @for (step of steps; track step.text; let i = $index) {
+          <li appReveal [revealDelay]="i * 100" class="card h-full p-6">
+            <div class="flex items-center justify-between">
+              <span class="flex size-11 items-center justify-center rounded-xl bg-neutral-950 text-white">
+                <lucide-icon [img]="step.icon" [size]="20" />
+              </span>
+              <span class="font-mono text-sm font-medium text-neutral-400">0{{ i + 1 }}</span>
+            </div>
+            <p class="mt-6 text-[15px] leading-relaxed text-neutral-700">{{ step.text }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. Privacidad y seguridad -->
+  <section class="section border-t border-neutral-200/70 bg-(--color-surface)" aria-labelledby="privacidad-title">
+    <div class="container-page">
+      <div appReveal class="card mx-auto flex max-w-3xl flex-col gap-5 p-7 sm:flex-row sm:p-9">
+        <span class="icon-tile shrink-0"><lucide-icon [img]="icons.ShieldCheck" [size]="22" /></span>
+        <div>
+          <h2 id="privacidad-title" class="text-2xl font-bold tracking-tight text-neutral-950">Privacidad y seguridad</h2>
+          <p class="mt-3 text-[15px] leading-relaxed text-neutral-600">
+            Usamos la plataforma oficial de WhatsApp Business. La información de las conversaciones se usa
+            únicamente para dar el servicio a cada negocio; no la vendemos ni la usamos para publicidad. Consulta
+            nuestro
+            <a routerLink="/aviso-de-privacidad" class="font-medium text-emerald-700 underline decoration-emerald-700/30 underline-offset-4 hover:decoration-emerald-700">aviso de privacidad</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Contacto -->
+  <section class="py-20 sm:py-28" aria-labelledby="contacto-agentes-title">
+    <div class="container-page">
+      <div appReveal class="relative overflow-hidden rounded-[2rem] bg-neutral-950 px-6 py-14 text-white shadow-(--shadow-lift) sm:px-12 sm:py-20">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+          <div class="bg-grid-dark mask-fade-b absolute inset-0"></div>
+          <div class="absolute -bottom-32 left-1/2 h-72 w-[640px] -translate-x-1/2 rounded-full bg-emerald-500/25 blur-3xl"></div>
+        </div>
+
+        <div class="relative mx-auto max-w-2xl text-center">
+          <img src="assets/botbite-mark-white.png" alt="" width="56" height="56" class="mx-auto size-14" />
+          <h2 id="contacto-agentes-title" class="mt-6 text-3xl font-bold tracking-tight sm:text-5xl">
+            ¿Listo para automatizar tu atención?
+          </h2>
+          <div class="mt-10 flex justify-center">
+            <a [href]="site.whatsappPlainHref" target="_blank" rel="noopener noreferrer" class="btn-light !px-6 !py-3.5 !text-[15px]">
+              <lucide-icon [img]="icons.MessageCircle" [size]="18" />
+              Escríbenos por WhatsApp
+              <span class="sr-only">(abre en una pestaña nueva)</span>
+            </a>
+          </div>
+        </div>
+
+        <ul class="relative mx-auto mt-12 grid max-w-xl gap-3 border-t border-white/10 pt-8 text-sm sm:grid-cols-2">
+          <li>
+            <a [href]="'mailto:' + site.email" class="flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-white/5">
+              <lucide-icon [img]="icons.Mail" [size]="18" class="text-emerald-300" />
+              <span class="min-w-0">
+                <span class="block text-xs text-neutral-500">Correo</span>
+                <span class="block truncate font-medium">{{ site.email }}</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a [href]="site.phoneHref" class="flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-white/5">
+              <lucide-icon [img]="icons.Phone" [size]="18" class="text-emerald-300" />
+              <span>
+                <span class="block text-xs text-neutral-500">Teléfono</span>
+                <span class="block font-medium">{{ site.phoneDisplay }}</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Pie de página (texto definido en el brief de verificación de Meta) -->
+<footer class="border-t border-neutral-200 bg-(--color-surface)">
+  <div class="container-page space-y-3 py-10 text-sm text-neutral-600">
+    <p class="font-semibold text-neutral-950">BotBite · Asistente de WhatsApp con IA para negocios de servicios</p>
+    <p>
+      {{ site.location }} ·
+      <a [href]="'mailto:' + site.email" class="footer-link">{{ site.email }}</a> ·
+      <a [href]="site.phoneHref" class="footer-link">{{ site.phoneDisplay }}</a>
+    </p>
+    <p>
+      <a routerLink="/aviso-de-privacidad" class="footer-link">Aviso de privacidad</a> ·
+      <a routerLink="/proteccion-datos" class="footer-link">Protección de datos</a>
+    </p>
+    <p class="text-xs text-neutral-500">
+      &copy; {{ year }} BotBite. Todos los derechos reservados. BotBite es una marca comercial de Carlos Osuna Blancarte.
+    </p>
+  </div>
+</footer>
