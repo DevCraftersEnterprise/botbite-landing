@@ -1,4 +1,10 @@
-# Las páginas prerenderizadas (/, /home, /agentes, /aviso-de-privacidad, /proteccion-datos)
-# se sirven tal cual desde su archivo index.html. Esta regla solo aplica al resto
-# de las rutas (fallback de la SPA).
-/*     /index.csr.html   200
+# Netlify redirige las carpetas a su versión con "/" final (/agentes -> /agentes/).
+# Estas reescrituras forzadas sirven el HTML prerenderizado en la URL exacta, con
+# 200 y sin redirección (las URLs canónicas no llevan "/" final).
+/home                  /home/index.html                 200!
+/agentes               /agentes/index.html              200!
+/aviso-de-privacidad   /aviso-de-privacidad/index.html  200!
+/proteccion-datos      /proteccion-datos/index.html     200!
+
+# Resto de rutas: fallback de la SPA.
+/*                     /index.csr.html                  200
