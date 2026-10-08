@@ -1,0 +1,36 @@
+# Encabezados de caché para Netlify.
+#
+# HTML: se revalida con el servidor en cada visita (siempre la última versión
+# publicada). Netlify invalida su CDN en cada despliegue.
+#
+# JS y CSS: el build los genera con un hash en el nombre (main-XXXX.js); cada
+# cambio produce un archivo nuevo, así que pueden guardarse un año.
+#
+# Las reglas no se solapan a propósito: si dos reglas fijan Cache-Control para
+# la misma URL, Netlify combina los valores.
+
+/
+  Cache-Control: no-cache
+/home
+  Cache-Control: no-cache
+/home/
+  Cache-Control: no-cache
+/agentes
+  Cache-Control: no-cache
+/agentes/
+  Cache-Control: no-cache
+/aviso-de-privacidad
+  Cache-Control: no-cache
+/aviso-de-privacidad/
+  Cache-Control: no-cache
+/proteccion-datos
+  Cache-Control: no-cache
+/proteccion-datos/
+  Cache-Control: no-cache
+/*.html
+  Cache-Control: no-cache
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
