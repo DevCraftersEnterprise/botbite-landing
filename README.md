@@ -1,59 +1,67 @@
-# BotbiteLander
+# BotBite Landing
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+Sitio público de **BotBite** ([botbite.com.mx](https://botbite.com.mx)): presenta el mesero virtual por WhatsApp, cómo funciona, sus funciones, el panel de caja, la seguridad, los precios y las preguntas frecuentes. También incluye el aviso de privacidad y el aviso de datos.
 
-## Development server
+**Stack:** Angular 20 (standalone, signals, zoneless) · Tailwind CSS 4 · lucide-angular. Sin SSR; el build genera un sitio estático.
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Puesta en marcha
 
 ```bash
-ng generate component component-name
+npm install
+npm start          # http://localhost:4200
+npm run build      # dist/botbite-lander/browser
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Despliegue
 
-```bash
-ng generate --help
+Sitio estático: publica `dist/botbite-lander/browser`.
+
+- **Build Command:** `npm ci && npm run build`.
+- **Reescritura de rutas:** [public/_redirects](public/_redirects) (`/* /index.html 200`) la resuelve en Netlify y Cloudflare Pages. En otros hostings hay que configurar una regla equivalente.
+- Si cambia el dominio, actualiza el `canonical`, las etiquetas `og:url`/`og:image` y los datos schema.org en [src/index.html](src/index.html).
+
+## Estructura
+
+```
+src/
+├── index.html                # SEO: title, description, Open Graph, Twitter, canonical, JSON-LD
+├── styles.css                # Tailwind, tokens de color y animaciones
+└── app/
+    ├── app.routes.ts         # /home, /aviso-de-privacidad, /proteccion-datos
+    ├── layouts/main/         # página principal: orden de las secciones
+    ├── components/
+    │   ├── navbar/  footer/  contact/
+    │   ├── hero/  chat-mockup/          # conversación de WhatsApp animada
+    │   ├── how-it-works/  features/  benefits/  languages/
+    │   ├── dashboard/                   # panel de caja en tiempo real (mockup)
+    │   ├── security/  pricing/  faq/
+    │   └── privacy-policy/  data-notice/
+    └── shared/
+        ├── site.ts                      # contacto, WhatsApp, enlaces y navegación
+        ├── reveal.directive.ts          # aparición al hacer scroll
+        ├── motion.ts                    # respeta prefers-reduced-motion
+        ├── section-nav.service.ts       # navegación a secciones desde cualquier ruta
+        └── section-heading.ts
 ```
 
-## Building
+## Editar contenido
 
-To build the project run:
+| Qué | Dónde |
+| --- | --- |
+| Correo, teléfono, WhatsApp, URL del panel | [src/app/shared/site.ts](src/app/shared/site.ts) |
+| Enlaces del menú | `NAV_LINKS` en el mismo archivo |
+| Textos de cada sección | El componente de la sección en `src/app/components/` |
+| Preguntas frecuentes | [src/app/components/faq](src/app/components/faq) |
+| Precios | [src/app/components/pricing](src/app/components/pricing) (hoy: cotización personalizada por sucursal) |
+| SEO e imagen para compartir | [src/index.html](src/index.html) y `public/assets/og-image.png` (1200×630) |
 
-```bash
-ng build
-```
+**Reglas de contenido:**
+- Describir solo funciones que el producto tiene.
+- No publicar clientes, testimonios ni métricas sin autorización.
+- Los precios del mockup del chat son ilustrativos.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Accesibilidad y animaciones
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Las animaciones son CSS y se activan al entrar en pantalla. Con "reducir movimiento" activado en el sistema, todo se muestra estático.
+- El sitio tiene enlace para saltar al contenido, foco visible y menú móvil usable con teclado (se cierra con Escape). Los mockups animados tienen una descripción alternativa para lectores de pantalla.
+- Antes de publicar cambios, revisa que el sitio se vea bien en 390 px de ancho y que no aparezca scroll horizontal.
