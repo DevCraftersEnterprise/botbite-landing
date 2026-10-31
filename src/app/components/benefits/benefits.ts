@@ -15,15 +15,17 @@ export class Benefits {
     'Tu equipo deja de tomar notas y se enfoca en servir y atender mejor.',
     'Pedidos por escrito y confirmados por el cliente: menos errores de comanda.',
     'Atiende a turistas en su idioma sin contratar personal bilingüe.',
-    'Cada pedido, cuenta o solicitud llega a caja en tiempo real.',
-    'Administra sucursales, menús, productos y códigos QR desde un solo panel.',
+    'Cada comanda, cuenta y pago llega al panel en tiempo real.',
+    'El monedero le da a tus clientes un motivo para volver.',
+    'Administra sucursales, menús, personal y códigos QR desde un solo panel.',
   ];
 
   protected readonly forGuests = [
     'Piden cuando quieren, sin esperar a que pase el mesero.',
     'Conversan en su idioma, escribiendo o con notas de voz.',
     'Ven fotos, descripciones y recomendaciones antes de decidir.',
-    'Consultan su consumo y piden la cuenta desde la mesa.',
+    'Consultan su consumo y pagan desde la mesa.',
+    'Acumulan en su monedero y piden su factura en el chat.',
     'Nada que descargar: solo escanear y escribir.',
   ];
 }

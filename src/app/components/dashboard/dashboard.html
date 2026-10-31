@@ -13,7 +13,7 @@
           eyebrow="Caja en tiempo real"
           headingId="panel-title"
           title="Tu equipo se entera al instante de lo que pasa en cada mesa"
-          description="Las notificaciones llegan por WhatsApp y al panel web en vivo, sin recargar la página. Nadie se queda esperando."
+          description="Las comandas y los avisos llegan al panel web en vivo, sin recargar la página. Nadie se queda esperando."
         />
 
         <ul class="mt-10 grid gap-5 sm:grid-cols-2">
@@ -34,8 +34,8 @@
       <!-- Maqueta del panel -->
       <div appReveal [revealDelay]="120">
         <p class="sr-only">
-          Ejemplo del panel de caja con notificaciones en vivo: nuevos pedidos, solicitudes de cuenta,
-          amenidades y alertas de comportamiento.
+          Ejemplo del panel de caja con notificaciones en vivo: comandas, cuentas solicitadas, pagos
+          recibidos y alertas.
         </p>
         <div aria-hidden="true" class="overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-2xl shadow-black/40">
           <!-- Barra del navegador -->
@@ -44,7 +44,7 @@
             <span class="size-2.5 rounded-full bg-white/15"></span>
             <span class="size-2.5 rounded-full bg-white/15"></span>
             <span class="ml-3 flex-1 truncate rounded-md bg-white/5 px-3 py-1 text-center text-[11px] text-neutral-400">
-              app.botbite.com.mx/notificaciones
+              app.botbite.com.mx/dashboard/notifications
             </span>
           </div>
 
@@ -97,8 +97,8 @@
               </ul>
 
               <div class="mt-4 flex items-center gap-2 rounded-xl border border-white/5 bg-white/[0.03] p-3 text-xs text-neutral-400">
-                <lucide-icon [img]="icons.MessageCircle" [size]="15" class="text-emerald-300" />
-                También enviado al WhatsApp de caja
+                <lucide-icon [img]="icons.BellRing" [size]="15" class="text-emerald-300" />
+                Cada aviso suena al llegar y puedes filtrarlos por tipo
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LucideAngularModule, BellRing, MessageCircle, QrCode, ShoppingBag } from 'lucide-angular';
+import { LucideAngularModule, BellRing, CreditCard, MessageCircle, QrCode } from 'lucide-angular';
 import { RevealDirective } from '../../shared/reveal.directive';
 import { SectionHeading } from '../../shared/section-heading';
 
@@ -12,23 +12,23 @@ export class HowItWorks {
   protected readonly steps = [
     {
       icon: QrCode,
-      title: 'Escanea el QR de la mesa',
-      text: 'WhatsApp se abre con un mensaje listo para enviar. Sin descargar nada ni registrarse.',
+      title: 'Escanea el QR en la mesa',
+      text: 'Confirma que está en tu restaurante y WhatsApp se abre con un mensaje listo para enviar. Sin descargar nada ni registrarse.',
     },
     {
       icon: MessageCircle,
-      title: 'Conversa en su idioma',
-      text: 'Elige español, inglés, francés o coreano, indica su mesa y consulta el menú, fotos o recomendaciones.',
-    },
-    {
-      icon: ShoppingBag,
-      title: 'Pide como le hablaría al mesero',
-      text: '“2 tacos al pastor sin cebolla”: por texto o nota de voz. BotBite arma el carrito y pide confirmación.',
+      title: 'Pide en su idioma',
+      text: 'Elige español, inglés, francés o coreano, indica su mesa y pide como le hablaría al mesero: por texto, nota de voz o desde el menú interactivo.',
     },
     {
       icon: BellRing,
-      title: 'Tu caja lo recibe al instante',
-      text: 'El pedido llega por WhatsApp y al panel web en tiempo real. Lo mismo con la cuenta y las amenidades.',
+      title: 'Tu equipo lo recibe al instante',
+      text: 'Cada ronda llega al panel como una comanda en tiempo real. Cuando avanza, el comensal recibe el aviso por WhatsApp.',
+    },
+    {
+      icon: CreditCard,
+      title: 'Paga desde la mesa',
+      text: 'Pide la cuenta, usa su monedero y paga con un link de Mercado Pago o con el mesero. Si necesita factura, la pide ahí mismo.',
     },
   ];
 }

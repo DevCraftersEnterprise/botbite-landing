@@ -15,7 +15,7 @@ export class Faq {
   protected readonly items = [
     {
       q: '¿Mis clientes tienen que descargar una app?',
-      a: 'No. Escanean el código QR de su mesa y se abre WhatsApp con un mensaje listo para enviar. Desde ahí conversan con BotBite como con cualquier contacto.',
+      a: 'No. Escanean el código QR de la mesa y se abre WhatsApp con un mensaje listo para enviar. Desde ahí conversan con BotBite como con cualquier contacto.',
     },
     {
       q: '¿En qué idiomas atiende?',
@@ -27,11 +27,19 @@ export class Faq {
     },
     {
       q: '¿Cómo llegan los pedidos a mi restaurante?',
-      a: 'Cuando el cliente confirma su carrito, el pedido llega a caja por WhatsApp y aparece en el panel web en tiempo real. Lo mismo ocurre con solicitudes de cuenta, amenidades y alertas.',
+      a: 'Cuando el cliente confirma, cada ronda aparece como una comanda en el panel web en tiempo real. Tu equipo la pasa a preparación o entregada, y ahí mismo ve las cuentas solicitadas, los pagos y las alertas.',
     },
     {
-      q: '¿BotBite cobra a mis clientes?',
-      a: 'No procesa pagos. El comensal pide la cuenta desde WhatsApp e indica su método de pago; tu equipo recibe el aviso y cobra como siempre.',
+      q: '¿Se puede pagar desde WhatsApp?',
+      a: 'Sí, si activas Mercado Pago. El comensal elige su propina y paga con un link, y el dinero llega a tu cuenta de Mercado Pago, con sus comisiones. También puede esperar al mesero y pagar como siempre. BotBite no ve ni guarda datos de tarjetas.',
+    },
+    {
+      q: '¿Cómo funciona el monedero?',
+      a: 'Al pagar en línea, el comensal acumula un porcentaje de su consumo, sin contar la propina. Tú defines el porcentaje. El saldo no vence, se comparte entre tus sucursales y puede usarlo, completo o en parte, al pedir la cuenta en su próxima visita.',
+    },
+    {
+      q: '¿Mis clientes pueden facturar?',
+      a: 'Sí. El comensal manda su Constancia de Situación Fiscal por WhatsApp, confirma sus datos y recibe su factura en el chat. Si ya facturó antes, puede reutilizar sus datos. La propina no se factura.',
     },
     {
       q: '¿Cómo cargo mi menú?',
@@ -39,15 +47,15 @@ export class Faq {
     },
     {
       q: '¿Funciona si tengo varias sucursales?',
-      a: 'Sí. Cada sucursal tiene su propio menú, sus códigos QR, sus notificaciones y su saldo de créditos, todo administrado desde la misma cuenta.',
+      a: 'Sí. Cada sucursal tiene su propio menú, su QR, sus notificaciones y sus funciones, todo administrado desde la misma cuenta. Cada cajero o mesero solo ve las sucursales que tiene asignadas.',
     },
     {
       q: '¿Qué evita que alguien haga pedidos falsos desde fuera?',
-      a: 'Los códigos QR usan un token rotativo que se valida en cada conversación, de modo que no basta con conocer el número de WhatsApp para pedir a una mesa.',
+      a: 'Para pedir hay que escanear el QR: cada escaneo genera un código que caduca en minutos y solo sirve una vez. Además, puedes exigir que el comensal esté dentro del radio de tu sucursal. Si alguien escribe sin ese código, BotBite le pide escanearlo.',
     },
     {
       q: '¿Cómo se cobra el servicio?',
-      a: 'Con créditos de mensajes por sucursal: cada mensaje atendido consume un crédito. Escríbenos y te preparamos una cotización según tu volumen.',
+      a: 'Con un plan a la medida, según tus sucursales y las funciones que actives. Escríbenos y te preparamos una cotización.',
     },
   ];
 }
