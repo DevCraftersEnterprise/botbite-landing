@@ -6,5 +6,9 @@
 /aviso-de-privacidad   /aviso-de-privacidad/index.html  200!
 /proteccion-datos      /proteccion-datos/index.html     200!
 
+# QR impreso de cada sucursal: es una URL fija que lleva a la página del mesero.
+# Si n8n cambia de servidor, solo se cambia esta línea y no se reimprime nada.
+/m/:slug               https://n8n.srv1902966.hstgr.cloud/webhook/mesero-:slug/qr  302
+
 # Resto de rutas: fallback de la SPA.
 /*                     /index.csr.html                  200
