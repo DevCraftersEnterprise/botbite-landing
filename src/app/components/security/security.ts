@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LucideAngularModule, KeyRound, LockKeyhole, RefreshCcw, ShieldAlert, ShieldCheck } from 'lucide-angular';
+import { LucideAngularModule, CreditCard, LockKeyhole, MapPin, ShieldCheck, TimerReset } from 'lucide-angular';
 import { RevealDirective } from '../../shared/reveal.directive';
 import { SectionHeading } from '../../shared/section-heading';
 
@@ -13,24 +13,24 @@ export class Security {
 
   protected readonly items = [
     {
-      icon: RefreshCcw,
-      title: 'QR con token rotativo',
-      text: 'Los códigos de mesa se validan con un token que cambia. Así se evitan pedidos falsos hechos a distancia.',
+      icon: MapPin,
+      title: 'Verificación de ubicación',
+      text: 'Define el radio de cada sucursal. Si el comensal está fuera, no obtiene el acceso para pedir.',
     },
     {
-      icon: KeyRound,
-      title: 'Webhooks verificados',
-      text: 'Solo se procesan mensajes auténticos que llegan desde WhatsApp; las solicitudes no firmadas se descartan.',
+      icon: TimerReset,
+      title: 'Código de un solo uso',
+      text: 'Cada escaneo genera un código que caduca en minutos y se invalida al usarlo. Sin él, BotBite no abre una cuenta.',
     },
     {
       icon: LockKeyhole,
       title: 'Acceso por restaurante',
-      text: 'Cada equipo ve únicamente la información de su restaurante y sus sucursales.',
+      text: 'Cada equipo ve únicamente la información de su restaurante, y el personal solo las sucursales que tiene asignadas.',
     },
     {
-      icon: ShieldAlert,
-      title: 'Moderación de conversaciones',
-      text: 'Si un usuario envía mensajes inapropiados, tu equipo recibe una alerta para actuar a tiempo.',
+      icon: CreditCard,
+      title: 'Pagos en Mercado Pago',
+      text: 'El comensal paga en el checkout de Mercado Pago. BotBite no ve ni guarda los datos de su tarjeta.',
     },
   ];
 }

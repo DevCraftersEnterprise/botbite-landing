@@ -5,7 +5,9 @@ import {
   ArrowRight,
   AudioLines,
   BellRing,
+  CreditCard,
   Languages,
+  PiggyBank,
   QrCode,
   Smartphone,
   Sparkles,
@@ -27,6 +29,8 @@ export class Hero {
     { icon: Smartphone, label: 'Sin descargar apps' },
     { icon: Languages, label: 'Español, inglés, francés y coreano' },
     { icon: AudioLines, label: 'Texto y notas de voz' },
-    { icon: BellRing, label: 'Pedidos a caja en tiempo real' },
+    { icon: BellRing, label: 'Comandas en vivo en tu panel' },
+    { icon: CreditCard, label: 'Pago con link de Mercado Pago' },
+    { icon: PiggyBank, label: 'Monedero y factura en el chat' },
   ];
 }
