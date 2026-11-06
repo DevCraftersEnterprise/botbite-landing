@@ -101,3 +101,9 @@ Todavía no hay pruebas unitarias. Cada cambio se revisa en el navegador y en el
 ### Despliegue
 
 Netlify publica `main` automáticamente. Para verificar, corre `curl -sI https://botbite.com.mx/<ruta>`: debe responder `200` con `Cache-Control: no-cache`, y el HTML debe traer el `<title>` de esa ruta.
+
+### CI y ramas protegidas
+
+- `dev` y `main` solo aceptan PRs con el check `test` en verde. Por ahora el check corre solo el build, porque no hay pruebas unitarias. No hay excepción para administradores, así que no hay atajo para un hotfix: también va por PR a `dev`.
+- Antes de abrir el PR corre `npm run build`.
+- Si la CI falla, se corrige en la rama; no se fuerza el merge.
