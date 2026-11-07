@@ -12,6 +12,13 @@ npm start          # http://localhost:4200
 npm run build      # dist/botbite-lander/browser
 ```
 
+## CI y ramas protegidas
+
+- **Ramas:** el trabajo se integra en `dev` (rama por defecto) y pasa a producción con un PR de `dev` a `main`.
+- **CI** ([.github/workflows/ci.yml](.github/workflows/ci.yml)): en cada PR hacia `dev` o `main`, y en cada push a esas ramas, corre el build, que compila y prerenderiza cada ruta. Todavía no hay pruebas unitarias. No usa secretos.
+- **`dev` y `main` protegidas:** solo entra por PR y con el check `test` en verde. No se borran ni aceptan force-push, y la regla aplica también a los administradores.
+- **Despliegue:** Netlify publica `main`; `dev` no se publica. Como solo entra lo que pasó la CI, lo que publica Netlify ya compiló.
+
 ## Despliegue
 
 Sitio estático: publica `dist/botbite-lander/browser`.
