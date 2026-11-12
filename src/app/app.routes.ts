@@ -16,6 +16,17 @@ const HOME = {
   loadComponent: () => import('./layouts/main/main'),
 };
 
+/** Las URL que no existen. Netlify la sirve con estado 404 (public/_redirects). */
+const NOT_FOUND = {
+  title: 'Página no encontrada · BotBite',
+  data: seo({
+    path: '/404',
+    noindex: true,
+    description: 'La página que buscas no existe en BotBite.',
+  }),
+  loadComponent: () => import('./pages/not-found/not-found'),
+};
+
 export const routes: Routes = [
   // Sitio del mesero virtual para restaurantes.
   {
@@ -46,6 +57,8 @@ export const routes: Routes = [
         }),
         loadComponent: () => import('./components/data-notice/data-notice'),
       },
+      // Se prerenderiza en /404/index.html, que Netlify sirve para lo que no existe.
+      { path: '404', ...NOT_FOUND },
     ],
   },
 
@@ -61,5 +74,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/agentes/agentes'),
   },
 
-  { path: '**', redirectTo: '' },
+  // Antes redirigía a la home: cualquier URL respondía 200 con la home (issue #12).
+  {
+    path: '**',
+    loadComponent: () => import('./layouts/site/site-layout'),
+    children: [{ path: '', ...NOT_FOUND }],
+  },
 ];
