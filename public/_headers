@@ -17,6 +17,10 @@
   Cache-Control: no-cache
 /agentes
   Cache-Control: no-cache
+/404
+  Cache-Control: no-cache
+/404/
+  Cache-Control: no-cache
 /agentes/
   Cache-Control: no-cache
 /aviso-de-privacidad

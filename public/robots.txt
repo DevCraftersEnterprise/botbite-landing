@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# Los QR de las mesas redirigen al mesero: no son páginas.
+Disallow: /m/
+
+Sitemap: https://botbite.com.mx/sitemap.xml

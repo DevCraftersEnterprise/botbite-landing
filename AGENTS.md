@@ -91,7 +91,10 @@ Todavía no hay pruebas unitarias. Cada cambio se revisa en el navegador y en el
 1. Agrega la ruta en `app.routes.ts` con su `title` y su `data: seo({ path, description })`.
 2. Agrega una reescritura forzada en `public/_redirects`: `/<ruta>  /<ruta>/index.html  200!`. Sin ella, Netlify redirige `/ruta` a `/ruta/`.
 3. Agrega `Cache-Control: no-cache` en `public/_headers` para `/<ruta>` y `/<ruta>/`. No repitas reglas para la misma URL, porque Netlify junta los valores.
-4. Después del build, revisa que `dist/botbite-lander/browser/<ruta>/index.html` traiga su propio `<title>` y su descripción.
+4. Agrega la URL canónica a `public/sitemap.xml`.
+5. Después del build, revisa que `dist/botbite-lander/browser/<ruta>/index.html` traiga su propio `<title>` y su descripción.
+
+Una URL que no existe responde 404 con la página de `pages/not-found` (la última regla de `public/_redirects`). `public/robots.txt` apunta al sitemap.
 
 ### Reglas
 

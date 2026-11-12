@@ -10,5 +10,6 @@
 # Si la página del QR cambia de servidor, solo se cambia esta línea y no se reimprime nada.
 /m/:slug               https://n8n.srv1902966.hstgr.cloud/webhook/mesero-:slug/qr  302
 
-# Resto de rutas: fallback de la SPA.
-/*                     /index.csr.html                  200
+# Lo que no existe: la página 404 prerenderizada, con estado 404 (issue #12).
+# Antes era /index.csr.html con 200, y cualquier URL respondía con la home.
+/*                     /404/index.html                  404

@@ -10,6 +10,8 @@ export interface PageSeo {
   socialDescription?: string;
   /** Ruta canónica, por ejemplo `/agentes`. */
   path: string;
+  /** No indexar (la página 404). Las demás llevan `index, follow`, como index.html. */
+  noindex?: boolean;
 }
 
 /**
@@ -42,6 +44,8 @@ export class SeoTitleStrategy extends TitleStrategy {
     this.meta.updateTag({ property: 'og:description', content: socialDescription });
     this.meta.updateTag({ name: 'twitter:description', content: socialDescription });
     this.meta.updateTag({ property: 'og:url', content: url });
+    // index.html trae "index, follow": las páginas normales lo conservan igual.
+    this.meta.updateTag({ name: 'robots', content: seo.noindex ? 'noindex' : 'index, follow' });
 
     let canonical = this.document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
